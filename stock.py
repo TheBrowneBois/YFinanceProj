@@ -11,7 +11,12 @@ print("Value:", tick_info["currentPrice"])
 print("Avg Volume:", tick_info["averageVolume"])
 print("Market Cap:", tick_info["marketCap"])
 print("Beta:", tick_info["beta"])
-print("Price/Earnings:", tick_info["trailingPE"])
-print("Earnings per Share:", tick_info["trailingEps"])
 print("Price/Sales:", tick_info["priceToSalesTrailing12Months"])
 print("ebidta:", tick_info["ebitda"])
+
+if tick_info["ebitda"] > 0:
+	print("Price/Earnings:", tick_info["trailingPE"])
+	print("Earnings per Share:", tick_info["trailingEps"])
+else:
+	print("Price/Earnings: ---")
+	print("Earnings per Share: ---")
