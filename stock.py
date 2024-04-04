@@ -18,7 +18,7 @@ class stock:
 		self.shortRatio = shortRatio
 
 	def toData(self):
-		return {self.name: ["${}".format(self.price), self.eps, self.pe, format(self.ebitda, ".2%"), format(self.revenueGrowth, ".2%"), format(self.operatingMargins, ".2%"), self.beta, format(self.volume, ",")]}
+		return {self.symbol: [self.name, "${:.2f}".format(self.price), self.eps, self.pe, format(self.ebitda, ".2%"), format(self.revenueGrowth, ".2%"), format(self.operatingMargins, ".2%"), format(self.debtToEquity, ".2%"), self.beta, format(self.volume, ","), format(self.shortRatio, ".2%")]}
 
 
 
@@ -36,88 +36,77 @@ def filterStock(ticker):
 	except:
 		return None
 	if price < 5: 
-		#print("invalid price for", name)
-		return None
+		return (name, "Price")
 
 	try:
 		eps = tick_info["trailingEps"]
 	except:
 		return None
 	if eps < 0: 
-		#print("invalid eps for", name)
-		return None
+		return (name, "Eps")
 
 	try:
 		pe = tick_info["trailingPE"]
 	except:
 		return None
 	if pe > 50: 
-		#print("invalid p/e for", name)
-		return None
+		return (name, "P/E")
 
 	try:
 		ebitda = tick_info["ebitdaMargins"]
 	except:
 		return None
 	if ebitda < 0.15: 
-		#print("invalid ebitda for", name)
-		return None
+		return (name, "EBITDA Margin")
 
 	try:
 		revenue = tick_info["totalRevenue"]
 	except:
 		return None
 	if revenue < 1000000000: 
-		#print("invalid revenue for", name)
-		return None
+		return (name, "Revenue")
 
 	try:
 		revenueGrowth = tick_info["revenueGrowth"]
 	except:
 		return None
 	if revenueGrowth < -0.2:
-		#print("invalid revenue growth for", name)
-		return None
+		return (name, "Revenue Growth")
 
 	try:
 		operatingMargins = tick_info["operatingMargins"]
 	except:
 		return None
 	if operatingMargins < 0.18: 
-		#print("invalid operating margins for", name)
-		return None
+		return (name, "Operating Margins")
 
 	try:
 		debtToEquity = tick_info["debtToEquity"]
 	except:
 		return None
 	if debtToEquity > 100.25: 
-		#print("invalid debt/equity for", name)
-		return None
+		return (name, "Debt/Equity")
 
 	try:
 		volume = tick_info["averageVolume"]
 	except:
 		return None
 	if volume < 3000000: 
-		#print("invalid volume for", name)
-		return None
+		return (name, "Avg. Volume")
 
 	try:
 		beta = tick_info["beta"]
 	except:
 		return None
 	if beta > 1.35: 
-		#print("invalid beta for", name)
-		return None
+		return (name, "Beta")
 
 	try:
 		shortRatio = tick_info["shortPercentOfFloat"]
 	except:
 		return None
 	if shortRatio > 0.1: 
-		#print("invalid short ratio for", name)
-		return None
+		return (name, "Short % of Float")
 
 	"""try:
 		fiftyTwoWeek = tick_info["52WeekChange"]
@@ -137,15 +126,26 @@ def get_companies(file_name):
 	return comps
 
 
-sandp_companies = get_companies("data/spTickers.csv")
+print("Data to read tickers from: ", end="")
+ticker_data = input()
+sandp_companies = get_companies(ticker_data)
 
 stock_list = []
+inv_ticker = []
+inv_name   = []
+inv_reason = []
 
 for tickr in sandp_companies:
 	tickr_stock = filterStock(yf.Ticker(tickr))
 
 	if tickr_stock is not None:
-		stock_list.append(tickr_stock)
+		if type(tickr_stock) == type(("a", "b")):
+			inv_ticker.append(tickr)
+			inv_name.append(tickr_stock[0])
+			inv_reason.append(tickr_stock[1])
+		else:
+			tickr_stock.symbol = tickr
+			stock_list.append(tickr_stock)
 
 print("Of the", len(sandp_companies), "companies listed, only", len(stock_list), "survived.")
 print("Survivors:")
@@ -154,7 +154,12 @@ table_data = {}
 for stoc in stock_list:
 	table_data.update(stoc.toData())
 
-survivors = pd.DataFrame(data=table_data, index=["Price", "EPS", "P/E", "EBITDA", "Revenue Growth", "Operatin Margins", "Beta", "Avg. Volume"])
+survivors = pd.DataFrame(data=table_data, index=["Name", "Price", "EPS", "P/E", "EBITDA", "Revenue Growth", "Operatin Margins", "Debt/Equity", "Beta", "Avg. Volume", "Short % of Float"])
 survivors = survivors.T
+survivors.to_csv("survivors.csv", index=False)
 
 print(survivors)
+
+inv_data = {"Symbol": inv_ticker, "Name": inv_name, "Reason": inv_reason}
+inv_table = pd.DataFrame(data=inv_data)
+inv_table.to_csv("invalid.csv", index=False)

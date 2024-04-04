@@ -1,0 +1,433 @@
+Symbol,Name,Reason
+PNW,Pinnacle West Capital Corporation,Operating Margins
+DAL,"Delta Air Lines, Inc.",EBITDA Margin
+RSG,"Republic Services, Inc.",Debt/Equity
+L,Loews Corporation,Operating Margins
+ARE,"Alexandria Real Estate Equities, Inc.",P/E
+BEN,"Franklin Resources, Inc.",Operating Margins
+FMC,FMC Corporation,Revenue Growth
+CHRW,"C.H. Robinson Worldwide, Inc.",EBITDA Margin
+TDG,TransDigm Group Incorporated,P/E
+MDLZ,"Mondelez International, Inc.",Operating Margins
+EA,Electronic Arts Inc.,Avg. Volume
+AMZN,"Amazon.com, Inc.",P/E
+HPQ,HP Inc.,EBITDA Margin
+AMGN,Amgen Inc.,Operating Margins
+CRM,"Salesforce, Inc.",P/E
+KMB,Kimberly-Clark Corporation,Operating Margins
+DG,Dollar General Corporation,EBITDA Margin
+IDXX,"IDEXX Laboratories, Inc.",P/E
+CTAS,Cintas Corporation,Avg. Volume
+SWK,"Stanley Black & Decker, Inc.",Eps
+APD,"Air Products and Chemicals, Inc.",Avg. Volume
+ROL,"Rollins, Inc.",P/E
+CTRA,Coterra Energy Inc.,Revenue Growth
+OXY,Occidental Petroleum Corporation,Beta
+HIG,"The Hartford Financial Services Group, Inc.",Operating Margins
+CCI,Crown Castle Inc.,Debt/Equity
+PHM,"PulteGroup, Inc.",Avg. Volume
+MKTX,MarketAxess Holdings Inc.,Revenue
+DGX,Quest Diagnostics Incorporated,Operating Margins
+IFF,International Flavors & Fragrances Inc.,Eps
+NWS,News Corporation,P/E
+GL,Globe Life Inc.,Avg. Volume
+DAY,Dayforce Inc,P/E
+PARA,Paramount Global,Eps
+INCY,Incyte Corporation,Avg. Volume
+AEP,"American Electric Power Company, Inc.",Operating Margins
+LHX,"L3Harris Technologies, Inc.",Operating Margins
+WBD,"Warner Bros. Discovery, Inc.",Eps
+ANSS,"ANSYS, Inc.",P/E
+ETR,Entergy Corporation,Operating Margins
+IVZ,Invesco Ltd.,Eps
+RVTY,"Revvity, Inc.",P/E
+AMT,American Tower Corporation,P/E
+KMX,"CarMax, Inc.",EBITDA Margin
+NXPI,NXP Semiconductors N.V.,Debt/Equity
+XOM,Exxon Mobil Corporation,Operating Margins
+PPG,"PPG Industries, Inc.",Operating Margins
+RHI,Robert Half Inc.,EBITDA Margin
+GIS,"General Mills, Inc.",Debt/Equity
+NCLH,Norwegian Cruise Line Holdings Ltd.,Operating Margins
+LLY,Eli Lilly and Company,P/E
+EPAM,"EPAM Systems, Inc.",EBITDA Margin
+OMC,Omnicom Group Inc.,Operating Margins
+TRV,"The Travelers Companies, Inc.",EBITDA Margin
+K,Kellanova,EBITDA Margin
+IPG,"The Interpublic Group of Companies, Inc.",Operating Margins
+AES,The AES Corporation,P/E
+ITW,Illinois Tool Works Inc.,Debt/Equity
+GNRC,Generac Holdings Inc.,EBITDA Margin
+TSLA,"Tesla, Inc.",EBITDA Margin
+ELV,"Elevance Health, Inc.",EBITDA Margin
+EL,The Estée Lauder Companies Inc.,P/E
+MSI,"Motorola Solutions, Inc.",Debt/Equity
+AXON,"Axon Enterprise, Inc.",P/E
+UPS,"United Parcel Service, Inc.",EBITDA Margin
+KMI,"Kinder Morgan, Inc.",Debt/Equity
+IBM,International Business Machines Corporation,Debt/Equity
+NDAQ,"Nasdaq, Inc.",Debt/Equity
+ZBRA,Zebra Technologies Corporation,P/E
+CTVA,"Corteva, Inc.",Operating Margins
+ADSK,"Autodesk, Inc.",P/E
+APTV,Aptiv PLC,EBITDA Margin
+UAL,"United Airlines Holdings, Inc.",EBITDA Margin
+AIZ,"Assurant, Inc.",EBITDA Margin
+RTX,RTX Corporation,EBITDA Margin
+TECH,Bio-Techne Corporation,Avg. Volume
+PGR,The Progressive Corporation,EBITDA Margin
+GE,General Electric Company,EBITDA Margin
+AMAT,"Applied Materials, Inc.",Beta
+WEC,"WEC Energy Group, Inc.",Debt/Equity
+CSX,CSX Corporation,Debt/Equity
+DECK,Deckers Outdoor Corporation,Avg. Volume
+IR,Ingersoll Rand Inc.,Avg. Volume
+EFX,Equifax Inc.,P/E
+OKE,"ONEOK, Inc.",Debt/Equity
+CPT,Camden Property Trust,Avg. Volume
+MAS,Masco Corporation,Operating Margins
+HII,"Huntington Ingalls Industries, Inc.",EBITDA Margin
+MRK,"Merck & Co., Inc.",P/E
+APA,APA Corporation,Debt/Equity
+VMC,Vulcan Materials Company,Operating Margins
+CNC,Centene Corporation,EBITDA Margin
+HUM,Humana Inc.,EBITDA Margin
+ULTA,"Ulta Beauty, Inc.",Operating Margins
+WRB,W. R. Berkley Corporation,Operating Margins
+GEHC,GE HealthCare Technologies Inc.,Operating Margins
+CF,"CF Industries Holdings, Inc.",Revenue Growth
+ETN,Eaton Corporation plc,Avg. Volume
+SWKS,"Skyworks Solutions, Inc.",Avg. Volume
+FDX,FedEx Corporation,EBITDA Margin
+CRL,"Charles River Laboratories International, Inc.",Operating Margins
+HRL,Hormel Foods Corporation,EBITDA Margin
+VLO,Valero Energy Corporation,EBITDA Margin
+REGN,"Regeneron Pharmaceuticals, Inc.",Avg. Volume
+ENPH,"Enphase Energy, Inc.",Revenue Growth
+LYV,"Live Nation Entertainment, Inc.",P/E
+COST,Costco Wholesale Corporation,EBITDA Margin
+BLDR,"Builders FirstSource, Inc.",Operating Margins
+GWW,"W.W. Grainger, Inc.",Operating Margins
+INTC,Intel Corporation,P/E
+DLR,"Digital Realty Trust, Inc.",Operating Margins
+IT,"Gartner, Inc.",Debt/Equity
+PEP,"PepsiCo, Inc.",Operating Margins
+MET,"MetLife, Inc.",EBITDA Margin
+ECL,Ecolab Inc.,Operating Margins
+POOL,Pool Corporation,EBITDA Margin
+BAX,Baxter International Inc.,Eps
+BIIB,Biogen Inc.,Avg. Volume
+JBL,Jabil Inc.,EBITDA Margin
+PFG,"Principal Financial Group, Inc.",EBITDA Margin
+ALGN,"Align Technology, Inc.",P/E
+SLB,Schlumberger Limited,Operating Margins
+VRTX,Vertex Pharmaceuticals Incorporated,Avg. Volume
+TGT,Target Corporation,EBITDA Margin
+ON,ON Semiconductor Corporation,Beta
+MOH,"Molina Healthcare, Inc.",EBITDA Margin
+MRO,Marathon Oil Corporation,Beta
+DVN,Devon Energy Corporation,Beta
+IQV,IQVIA Holdings Inc.,Operating Margins
+DTE,DTE Energy Company,Revenue Growth
+ROST,"Ross Stores, Inc.",EBITDA Margin
+SBUX,Starbucks Corporation,Operating Margins
+SPGI,S&P Global Inc.,P/E
+PFE,Pfizer Inc.,P/E
+ANET,"Arista Networks, Inc.",Avg. Volume
+LEN,Lennar Corporation,Operating Margins
+SYY,Sysco Corporation,EBITDA Margin
+HUBB,Hubbell Incorporated,Operating Margins
+HOLX,"Hologic, Inc.",Avg. Volume
+AWK,"American Water Works Company, Inc.",Debt/Equity
+ADI,"Analog Devices, Inc.",Revenue Growth
+EXR,Extra Space Storage Inc.,Avg. Volume
+DIS,The Walt Disney Company,P/E
+WMB,"The Williams Companies, Inc.",Debt/Equity
+IRM,Iron Mountain Incorporated,P/E
+WAB,Westinghouse Air Brake Technologies Corporation,Operating Margins
+CE,Celanese Corporation,Operating Margins
+DHI,"D.R. Horton, Inc.",Operating Margins
+MCO,Moody's Corporation,Debt/Equity
+AOS,A. O. Smith Corporation,Operating Margins
+FIS,"Fidelity National Information Services, Inc.",P/E
+ESS,"Essex Property Trust, Inc.",Debt/Equity
+FSLR,"First Solar, Inc.",Avg. Volume
+PPL,PPL Corporation,Debt/Equity
+LMT,Lockheed Martin Corporation,Operating Margins
+CAT,Caterpillar Inc.,Debt/Equity
+CDNS,"Cadence Design Systems, Inc.",P/E
+AMD,"Advanced Micro Devices, Inc.",P/E
+MKC,"McCormick & Company, Incorporated",Operating Margins
+CPB,Campbell Soup Company,Operating Margins
+NVR,"NVR, Inc.",Avg. Volume
+EOG,"EOG Resources, Inc.",Beta
+PKG,Packaging Corporation of America,Operating Margins
+UBER,"Uber Technologies, Inc.",P/E
+DUK,Duke Energy Corporation,Debt/Equity
+TMO,Thermo Fisher Scientific Inc.,Avg. Volume
+BALL,Ball Corporation,Operating Margins
+COP,ConocoPhillips,Revenue Growth
+TRMB,Trimble Inc.,Avg. Volume
+TAP,Molson Coors Beverage Company,Operating Margins
+AIG,"American International Group, Inc.",Operating Margins
+CSGP,"CoStar Group, Inc.",P/E
+ACGL,Arch Capital Group Ltd.,Avg. Volume
+SRE,Sempra,Avg. Volume
+PCAR,PACCAR Inc,Operating Margins
+SHW,The Sherwin-Williams Company,Operating Margins
+HAL,Halliburton Company,Beta
+ROK,"Rockwell Automation, Inc.",Operating Margins
+AVB,"AvalonBay Communities, Inc.",Avg. Volume
+KVUE,Kenvue Inc.,Operating Margins
+EVRG,"Evergy, Inc.",Operating Margins
+CTLT,"Catalent, Inc.",Eps
+JKHY,"Jack Henry & Associates, Inc.",Avg. Volume
+ALL,The Allstate Corporation,Eps
+MLM,"Martin Marietta Materials, Inc.",Avg. Volume
+J,Jacobs Solutions Inc.,EBITDA Margin
+CVX,Chevron Corporation,Operating Margins
+UNH,UnitedHealth Group Incorporated,EBITDA Margin
+JBHT,"J.B. Hunt Transport Services, Inc.",EBITDA Margin
+LUV,Southwest Airlines Co.,EBITDA Margin
+WY,Weyerhaeuser Company,Operating Margins
+DVA,DaVita Inc.,Operating Margins
+IEX,IDEX Corporation,Avg. Volume
+REG,Regency Centers Corporation,Avg. Volume
+EIX,Edison International,Debt/Equity
+NOW,"ServiceNow, Inc.",P/E
+ISRG,"Intuitive Surgical, Inc.",P/E
+BR,"Broadridge Financial Solutions, Inc.",Operating Margins
+VTRS,Viatris Inc.,P/E
+XEL,Xcel Energy Inc.,Debt/Equity
+NWSA,News Corporation,P/E
+MRNA,"Moderna, Inc.",Eps
+DLTR,"Dollar Tree, Inc.",Eps
+TEL,TE Connectivity Ltd.,Avg. Volume
+FTV,Fortive Corporation,Avg. Volume
+VTR,"Ventas, Inc.",Eps
+ABNB,"Airbnb, Inc.",Operating Margins
+NSC,Norfolk Southern Corporation,Debt/Equity
+GPN,Global Payments Inc.,Avg. Volume
+AVY,Avery Dennison Corporation,Operating Margins
+UNP,Union Pacific Corporation,Debt/Equity
+GILD,"Gilead Sciences, Inc.",Debt/Equity
+ZTS,Zoetis Inc.,Debt/Equity
+SYK,Stryker Corporation,Avg. Volume
+ACN,Accenture plc,Operating Margins
+OTIS,Otis Worldwide Corporation,Operating Margins
+EQT,EQT Corporation,Revenue Growth
+ADP,"Automatic Data Processing, Inc.",Avg. Volume
+TYL,"Tyler Technologies, Inc.",P/E
+AFL,Aflac Incorporated,Operating Margins
+FI,"Fiserv, Inc.",Avg. Volume
+ODFL,"Old Dominion Freight Line, Inc.",Avg. Volume
+APH,Amphenol Corporation,Avg. Volume
+COR,"Cencora, Inc.",EBITDA Margin
+FE,FirstEnergy Corp.,Operating Margins
+CBOE,"Cboe Global Markets, Inc.",Avg. Volume
+CZR,"Caesars Entertainment, Inc.",Debt/Equity
+WBA,"Walgreens Boots Alliance, Inc.",EBITDA Margin
+CTSH,Cognizant Technology Solutions Corporation,Operating Margins
+FFIV,"F5, Inc.",Avg. Volume
+CNP,"CenterPoint Energy, Inc.",Operating Margins
+CARR,Carrier Global Corporation,EBITDA Margin
+D,"Dominion Energy, Inc.",Debt/Equity
+FRT,Federal Realty Investment Trust,Debt/Equity
+BA,The Boeing Company,Eps
+HES,Hess Corporation,Avg. Volume
+VLTO,Veralto Corporation,Debt/Equity
+LH,Laboratory Corporation of America Holdings,EBITDA Margin
+RL,Ralph Lauren Corporation,EBITDA Margin
+MCHP,Microchip Technology Incorporated,Beta
+LKQ,LKQ Corporation,EBITDA Margin
+CEG,Constellation Energy Corporation,Revenue Growth
+LOW,"Lowe's Companies, Inc.",Operating Margins
+WST,"West Pharmaceutical Services, Inc.",Avg. Volume
+WMT,Walmart Inc.,EBITDA Margin
+TMUS,"T-Mobile US, Inc.",Debt/Equity
+LDOS,"Leidos Holdings, Inc.",P/E
+SPG,"Simon Property Group, Inc.",Debt/Equity
+NEM,Newmont Corporation,Eps
+LULU,Lululemon Athletica Inc.,Avg. Volume
+VZ,Verizon Communications Inc.,Debt/Equity
+CMG,"Chipotle Mexican Grill, Inc.",P/E
+MMC,"Marsh & McLennan Companies, Inc.",Debt/Equity
+TROW,"T. Rowe Price Group, Inc.",Avg. Volume
+PAYC,"Paycom Software, Inc.",Avg. Volume
+EQIX,"Equinix, Inc.",P/E
+TJX,"The TJX Companies, Inc.",EBITDA Margin
+AAL,American Airlines Group Inc.,EBITDA Margin
+BMY,Bristol-Myers Squibb Company,Operating Margins
+ADM,Archer-Daniels-Midland Company,EBITDA Margin
+CHD,"Church & Dwight Co., Inc.",Operating Margins
+AKAM,"Akamai Technologies, Inc.",Avg. Volume
+EXPD,"Expeditors International of Washington, Inc.",EBITDA Margin
+URI,"United Rentals, Inc.",Debt/Equity
+HAS,"Hasbro, Inc.",Eps
+AJG,Arthur J. Gallagher & Co.,P/E
+AME,"AMETEK, Inc.",Avg. Volume
+EMR,Emerson Electric Co.,Avg. Volume
+MCK,McKesson Corporation,EBITDA Margin
+BIO,"Bio-Rad Laboratories, Inc.",Eps
+ORCL,Oracle Corporation,Debt/Equity
+CMS,CMS Energy Corporation,Debt/Equity
+ED,"Consolidated Edison, Inc.",Debt/Equity
+GEN,Gen Digital Inc.,Debt/Equity
+ZBH,"Zimmer Biomet Holdings, Inc.",Avg. Volume
+TDY,Teledyne Technologies Incorporated,Avg. Volume
+MA,Mastercard Incorporated,Debt/Equity
+COO,"The Cooper Companies, Inc.",P/E
+STZ,"Constellation Brands, Inc.",Debt/Equity
+TTWO,"Take-Two Interactive Software, Inc.",Eps
+CINF,Cincinnati Financial Corporation,Avg. Volume
+NTAP,"NetApp, Inc.",Debt/Equity
+BKR,Baker Hughes Company,EBITDA Margin
+MOS,The Mosaic Company,Revenue Growth
+MU,"Micron Technology, Inc.",Eps
+BG,Bunge Global SA,EBITDA Margin
+WM,"Waste Management, Inc.",Debt/Equity
+LNT,Alliant Energy Corporation,Operating Margins
+EMN,Eastman Chemical Company,Operating Margins
+LW,"Lamb Weston Holdings, Inc.",Operating Margins
+BDX,"Becton, Dickinson and Company",P/E
+HST,"Host Hotels & Resorts, Inc.",Operating Margins
+DRI,"Darden Restaurants, Inc.",Operating Margins
+CL,Colgate-Palmolive Company,Debt/Equity
+PYPL,"PayPal Holdings, Inc.",Operating Margins
+NRG,"NRG Energy, Inc.",Eps
+MMM,3M Company,Eps
+STE,STERIS plc,Operating Margins
+PODD,Insulet Corporation,P/E
+WTW,Willis Towers Watson Public Limited Company,Avg. Volume
+PEG,Public Service Enterprise Group Incorporated,Debt/Equity
+TFX,Teleflex Incorporated,Operating Margins
+AMCR,Amcor plc,EBITDA Margin
+NKE,"NIKE, Inc.",EBITDA Margin
+BXP,"Boston Properties, Inc.",P/E
+WAT,Waters Corporation,Debt/Equity
+BSX,Boston Scientific Corporation,P/E
+JNPR,"Juniper Networks, Inc.",EBITDA Margin
+T,AT&T Inc.,Operating Margins
+CVS,CVS Health Corporation,EBITDA Margin
+PANW,"Palo Alto Networks, Inc.",EBITDA Margin
+DOC,"Healthpeak Properties, Inc.",Debt/Equity
+ABBV,AbbVie Inc.,P/E
+LYB,LyondellBasell Industries N.V.,EBITDA Margin
+CI,The Cigna Group,EBITDA Margin
+RCL,Royal Caribbean Cruises Ltd.,Operating Margins
+GD,General Dynamics Corporation,EBITDA Margin
+TXT,Textron Inc.,EBITDA Margin
+KR,The Kroger Co.,EBITDA Margin
+BLK,"BlackRock, Inc.",Avg. Volume
+NI,NiSource Inc.,Debt/Equity
+UHS,"Universal Health Services, Inc.",EBITDA Margin
+WDC,Western Digital Corporation,Eps
+FANG,"Diamondback Energy, Inc.",Avg. Volume
+FCX,Freeport-McMoRan Inc.,Beta
+FDS,FactSet Research Systems Inc.,Avg. Volume
+PXD,Pioneer Natural Resources Company,Avg. Volume
+VFC,V.F. Corporation,Eps
+CMCSA,Comcast Corporation,Operating Margins
+HON,Honeywell International Inc.,Operating Margins
+DOV,Dover Corporation,Operating Margins
+TSCO,Tractor Supply Company,EBITDA Margin
+PTC,PTC Inc.,P/E
+EBAY,eBay Inc.,Operating Margins
+CLX,The Clorox Company,P/E
+BBY,"Best Buy Co., Inc.",EBITDA Margin
+A,"Agilent Technologies, Inc.",Avg. Volume
+FOX,Fox Corporation,Operating Margins
+ETSY,"Etsy, Inc.",Operating Margins
+IP,International Paper Company,EBITDA Margin
+NVDA,NVIDIA Corporation,P/E
+PH,Parker-Hannifin Corporation,Debt/Equity
+INTU,Intuit Inc.,P/E
+PSX,Phillips 66,EBITDA Margin
+DXCM,"DexCom, Inc.",P/E
+GLW,Corning Incorporated,Operating Margins
+HPE,Hewlett Packard Enterprise Company,Operating Margins
+EQR,Equity Residential,Avg. Volume
+TER,"Teradyne, Inc.",Avg. Volume
+NEE,"NextEra Energy, Inc.",Debt/Equity
+CME,CME Group Inc.,Avg. Volume
+SMCI,"Super Micro Computer, Inc.",P/E
+VRSK,"Verisk Analytics, Inc.",Debt/Equity
+CAH,"Cardinal Health, Inc.",EBITDA Margin
+TPR,"Tapestry, Inc.",Debt/Equity
+HSIC,"Henry Schein, Inc.",EBITDA Margin
+BWA,BorgWarner Inc.,EBITDA Margin
+PCG,PG&E Corporation,Debt/Equity
+HSY,The Hershey Company,Operating Margins
+RMD,ResMed Inc.,Avg. Volume
+TT,Trane Technologies plc,Operating Margins
+MPC,Marathon Petroleum Corporation,EBITDA Margin
+KEYS,"Keysight Technologies, Inc.",Operating Margins
+WRK,WestRock Company,Eps
+TFC,Truist Financial Corporation,Eps
+HCA,"HCA Healthcare, Inc.",Operating Margins
+STX,Seagate Technology Holdings plc,Eps
+FOXA,Fox Corporation,Operating Margins
+GM,General Motors Company,EBITDA Margin
+SNPS,"Synopsys, Inc.",P/E
+SNA,Snap-on Incorporated,Avg. Volume
+NOC,Northrop Grumman Corporation,EBITDA Margin
+MPWR,"Monolithic Power Systems, Inc.",P/E
+AAPL,Apple Inc.,Debt/Equity
+EXPE,"Expedia Group, Inc.",EBITDA Margin
+XYL,Xylem Inc.,Operating Margins
+ATO,Atmos Energy Corporation,Revenue Growth
+UDR,"UDR, Inc.",Operating Margins
+QRVO,"Qorvo, Inc.",Eps
+GRMN,Garmin Ltd.,Avg. Volume
+BX,Blackstone Inc.,P/E
+F,Ford Motor Company,EBITDA Margin
+ALB,Albemarle Corporation,EBITDA Margin
+MGM,MGM Resorts International,EBITDA Margin
+NDSN,Nordson Corporation,Avg. Volume
+EXC,Exelon Corporation,Debt/Equity
+LIN,Linde plc,Avg. Volume
+MHK,"Mohawk Industries, Inc.",Eps
+NFLX,"Netflix, Inc.",P/E
+PSA,Public Storage,Avg. Volume
+TRGP,Targa Resources Corp.,Operating Margins
+XRAY,DENTSPLY SIRONA Inc.,Eps
+CHTR,"Charter Communications, Inc.",Debt/Equity
+CDW,CDW Corporation,EBITDA Margin
+PRU,"Prudential Financial, Inc.",EBITDA Margin
+ILMN,"Illumina, Inc.",Eps
+DHR,Danaher Corporation,Revenue Growth
+CAG,"Conagra Brands, Inc.",Operating Margins
+FICO,Fair Isaac Corporation,P/E
+CMI,Cummins Inc.,P/E
+CCL,Carnival Corporation & plc,Operating Margins
+AEE,Ameren Corporation,Revenue Growth
+BKNG,Booking Holdings Inc.,Operating Margins
+LRCX,Lam Research Corporation,Revenue Growth
+DD,"DuPont de Nemours, Inc.",P/E
+SJM,The J. M. Smucker Company,Eps
+MAA,"Mid-America Apartment Communities, Inc.",Avg. Volume
+WELL,Welltower Inc.,P/E
+GPC,Genuine Parts Company,EBITDA Margin
+ICE,"Intercontinental Exchange, Inc.",Avg. Volume
+DE,Deere & Company,Debt/Equity
+STLD,"Steel Dynamics, Inc.",Operating Margins
+PNR,Pentair plc,Operating Margins
+ALLE,Allegion plc,Debt/Equity
+AVGO,Broadcom Inc.,Debt/Equity
+JCI,Johnson Controls International plc,EBITDA Margin
+ES,Eversource Energy,Eps
+SO,The Southern Company,Debt/Equity
+BRO,"Brown & Brown, Inc.",Avg. Volume
+CBRE,"CBRE Group, Inc.",EBITDA Margin
+NUE,Nucor Corporation,Operating Margins
+HD,"The Home Depot, Inc.",Operating Margins
+LVS,Las Vegas Sands Corp.,Debt/Equity
+CB,Chubb Limited,Avg. Volume
+PAYX,"Paychex, Inc.",Avg. Volume
+KO,The Coca-Cola Company,Debt/Equity
+KLAC,KLA Corporation,Debt/Equity
+ROP,"Roper Technologies, Inc.",Avg. Volume
+KIM,Kimco Realty Corporation,Beta
+DOW,Dow Inc.,P/E
+TSN,"Tyson Foods, Inc.",Eps
+PWR,"Quanta Services, Inc.",P/E
