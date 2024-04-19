@@ -2,6 +2,7 @@ from ast import Try
 import yfinance as yfn
 import csv
 import math
+import os
 
 nasdaqFile = open("nasdaq-tickers.csv", "r")
 nasdaqFileReader = csv.reader(nasdaqFile)
@@ -9,8 +10,9 @@ SandP500File = open("spTickers.csv", "r")
 SandP500FileReader = csv.reader(SandP500File)
 passingGrade = 70
 passers = []
-for key, value in yfn.Ticker("MSFT").info.items():
-   print(str(key) + " : " + str(value))
+exit = False
+#for key, value in yfn.Ticker("MSFT").info.items():
+ #  print(str(key) + " : " + str(value))
 
 stockPriceWgt = 2
 EpsWgt = 10
@@ -27,18 +29,27 @@ shortPercentFloatWgt = 7
 Week52RangeWgt = 3
 marketCapWgt = 10
 
+
 def main():
-    exit = False
+    global exit
     while exit == False:
-        menu = input("Grade A Specific Stock (1)\nGrade Stocks from nasdaq cvs file (2)\nGrade Stocks from S&P 500 cvs file (3)\nExit (4)\n")
+        menu = input("Grade A Specific Stock (1)\nGrade Stocks from a csv file (2)\nExit (3)\n")
         if menu == "1":
             ticker = input("Enter the stock ticker\n\n")
             GradeStock(ticker, True)
         if menu == "2":
-            ScrapeCVS(nasdaqFileReader)
+            csvFile = False
+            print("The csv file must only contain tickers, one each per line")
+            print("if the csv file is in the same folder as this program then use the format, file.csv")
+            print("otherwise type the whole path of the file, path/file.csv")
+            csvName = input("Enter csv file: ")
+            try:
+                csvFile = open(csvName, "r")
+            except:
+                print("path does not exist\n\n")
+            if csvFile != False:
+                ScrapeCVS(csvFile)
         if menu == "3":
-            ScrapeCVS(SandP500FileReader)
-        if menu == "4":
             exit = True
 
 def ScrapeCVS(fileReader):
@@ -46,11 +57,14 @@ def ScrapeCVS(fileReader):
     passers = []
     firstValue = True
     for line in fileReader:
+        if line == "":
+            continue
         if firstValue:
             ticker = line[0][3:].strip("\n")
             firstValue = False
         else:
             ticker = line[0].strip("\n")
+        print(ticker)
         GradeStock(ticker, False)
     print("\n")
     for passed in passers:
@@ -72,7 +86,7 @@ def GradeStock(ticker, giveDetails):
     try:
         Eps = EpsWgt * clamp(math.log(stockInfo["forwardEps"], 25), 0, 1)
         UnWgtEps = stockInfo["forwardEps"]
-        EpsPerc = Eps/EpsWgt*100
+        EpsPerc = round(Eps/EpsWgt*100, 1)
     except:
         Eps = 0
         UnWgtEps = "None"
@@ -82,7 +96,7 @@ def GradeStock(ticker, giveDetails):
     try: 
         PE = PEWgt * clamp(-math.log(stockInfo["PE"], 10) + 3, 0, 1)
         UnWgtPE = stockInfo["forwardPE"]
-        PEPerc = PE/PEWgt*100
+        PEPerc = round(PE/PEWgt*100, 1)
     except:
         PE = 0
         UnWgtPE = "None"
@@ -92,7 +106,7 @@ def GradeStock(ticker, giveDetails):
     try:
         ebitda = ebitdaWgt * clamp(math.log(stockInfo["ebitdaMargins"], .2), 0, 1)
         UnWgtEbitda = stockInfo["ebitdaMargins"]
-        ebitdaPerc = ebitda/ebitdaWgt*100
+        ebitdaPerc = round(ebitda/ebitdaWgt*100, 1)
     except:
         ebitda = 0
         UnWgtEbitda = "None"
@@ -102,7 +116,7 @@ def GradeStock(ticker, giveDetails):
     try:
         revenue = revenueWgt * clamp((stockInfo["totalRevenue"] / 3000), 0, 1)
         UnWgtRevenue = stockInfo["totalRevenue"]
-        revenuePerc = revenue/revenueWgt *100
+        revenuePerc = round(revenue/revenueWgt*100, 1)
     except:
         revenue = 0
         UnWgtRevenue = "None"
@@ -112,7 +126,7 @@ def GradeStock(ticker, giveDetails):
     try:
         revenueGrowth = revenueGrowthWgt * clamp(math.log(stockInfo["revenueGrowth"], .25), 0, 1)
         UnWgtRevenueGrowth = stockInfo["revenueGrowth"]
-        revenueGrowthPerc = revenueGrowth/revenueGrowthWgt*100
+        revenueGrowthPerc = round(revenueGrowth/revenueGrowthWgt*100, 1)
     except:
         revenueGrowth = 0
         UnWgtRevenueGrowth = "None"
@@ -122,7 +136,7 @@ def GradeStock(ticker, giveDetails):
     try:
         operatingMargin = operatingMarginWgt * clamp((stockInfo["operatingMargins"] / .3), 0, 1)
         UnWgtOperatingMargin = stockInfo["operatingMargins"]
-        operatingMarginPerc = operatingMargin/operatingMarginWgt*100
+        operatingMarginPerc = round(operatingMargin/operatingMarginWgt*100, 1)
     except:
         operatingMargin = 0
         UnWgtOperatingMargin = "None"
@@ -132,7 +146,7 @@ def GradeStock(ticker, giveDetails):
     try:
         debtToEquity = debtToEquityWgt * clamp((1 / stockInfo["debtToEquity"]), 0, 1)
         UnWgtDebtToEquity = stockInfo["debtToEquity"]
-        debtToEquityPerc = debtToEquity/debtToEquityWgt*100
+        debtToEquityPerc = round(debtToEquity/debtToEquityWgt*100, 1)
     except:
         debtToEquity = 0
         UnWgtDebtToEquity = "None"
@@ -142,7 +156,7 @@ def GradeStock(ticker, giveDetails):
     try:
         PS = PSWgt * clamp(math.log(stockInfo["priceToSalesTrailing12Months"], 10), 0, 1)
         UnWgtPS = stockInfo["priceToSalesTrailing12Months"]
-        PSPerc = PS/PSWgt*100
+        PSPerc = round(PS/PSWgt*100, 1)
     except:
         PS = 0
         UnWgtPS = "None"
@@ -152,7 +166,7 @@ def GradeStock(ticker, giveDetails):
     try:
         volume = volumeWgt * clamp((stockInfo["averageVolume"] / 3000), 0, 1)
         UnWgtVolume = stockInfo["averageVolume"]
-        volumePerc = volume/volumeWgt*100
+        volumePerc = round(volume/volumeWgt*100, 1)
     except:
         volume = 0
         UnWgtVolume = "None"
@@ -162,7 +176,7 @@ def GradeStock(ticker, giveDetails):
     try:
         beta = betaWgt * clamp((1 - (1-stockInfo["beta"])), 0, 1)
         UnWgtBeta = stockInfo["beta"]
-        betaPerc = beta/betaWgt*100
+        betaPerc = round(beta/betaWgt*100, 1)
     except:
         beta = 0
         UnWgtBeta = "None"
@@ -172,7 +186,7 @@ def GradeStock(ticker, giveDetails):
     try:
         shortPercentFloat = shortPercentFloatWgt * clamp(math.log(stockInfo["shortPercentOfFloat"], .01), 0, 1)
         UnWgtShortPercentFloat = stockInfo["shortPercentOfFloat"]
-        shortPercentFloatPerc = shortPercentFloat/shortPercentFloatWgt*100
+        shortPercentFloatPerc = round(shortPercentFloat/shortPercentFloatWgt*100, 1)
     except:
         shortPercentFloat = 0
         UnWgtShortPercentFloat = "None"
@@ -182,7 +196,7 @@ def GradeStock(ticker, giveDetails):
     try:
         Week52Range = Week52RangeWgt * clamp(math.log(stockInfo["52WeekChange"], .6), 0, 1)
         UnWgtWeek52Range = stockInfo["52WeekChange"]
-        Week52RangePerc = Week52Range/Week52RangeWgt*100
+        Week52RangePerc = round(Week52Range/Week52RangeWgt*100, 1)
     except:
         Week52Range = 0
         UnWgtWeek52Range = "None"
@@ -192,7 +206,7 @@ def GradeStock(ticker, giveDetails):
     try:
         marketCap = marketCapWgt * clamp(math.log((stockInfo["sharesOutstanding"]*stockInfo["currentPrice"]), 10**9, 0, 1))
         UnWgtMarketCap = stockInfo["sharesOutstanding"]*stockInfo["currentPrice"]
-        marketCapPerc = marketCap/marketCapWgt*100
+        marketCapPerc = round(marketCap/marketCapWgt*100, 1)
     except:
         marketCap = 0
         UnWgtMarketCap = "None"
