@@ -2,7 +2,6 @@ from ast import Try
 import yfinance as yfn
 import csv
 import math
-import os
 
 nasdaqFile = open("nasdaq-tickers.csv", "r")
 nasdaqFileReader = csv.reader(nasdaqFile)
@@ -11,8 +10,6 @@ SandP500FileReader = csv.reader(SandP500File)
 passingGrade = 70
 passers = []
 exit = False
-#for key, value in yfn.Ticker("MSFT").info.items():
- #  print(str(key) + " : " + str(value))
 
 stockPriceWgt = 2
 EpsWgt = 10
@@ -55,16 +52,10 @@ def main():
 def ScrapeCVS(fileReader):
     global passers
     passers = []
-    firstValue = True
     for line in fileReader:
         if line == "":
             continue
-        if firstValue:
-            ticker = line[0][3:].strip("\n")
-            firstValue = False
-        else:
-            ticker = line[0].strip("\n")
-        print(ticker)
+        ticker = line.strip("\n")
         GradeStock(ticker, False)
     print("\n")
     for passed in passers:
