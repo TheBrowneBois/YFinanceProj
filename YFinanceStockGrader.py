@@ -1,15 +1,13 @@
 from ast import Try
 import yfinance as yfn
-import csv
 import math
+from datetime import datetime
 
-nasdaqFile = open("nasdaq-tickers.csv", "r")
-nasdaqFileReader = csv.reader(nasdaqFile)
-SandP500File = open("spTickers.csv", "r")
-SandP500FileReader = csv.reader(SandP500File)
-passingGrade = 70
-passers = []
+passingGrade = 80
+passers = [[]]
 exit = False
+#for key, value in yfn.Ticker("AAPL").info.items():
+#    print(str(key) + " : " + str(value))
 
 stockPriceWgt = 2
 EpsWgt = 10
@@ -42,6 +40,8 @@ def main():
             csvName = input("Enter csv file: ")
             try:
                 csvFile = open(csvName, "r")
+                global passingGrade
+                passingGrade = int(input("Enter the passing grade threshold (0-100): "))
             except:
                 print("path does not exist\n\n")
             if csvFile != False:
@@ -59,7 +59,34 @@ def ScrapeCVS(fileReader):
         GradeStock(ticker, False)
     print("\n")
     for passed in passers:
-        print(passed, "\n")
+        print(passed[1], "\n")
+    if len(passers) <= 0:
+        print("No stocks passed the threshold\n")
+    writeYesNo = "yes"
+    while(writeYesNo == "yes"):
+        writeYesNo = input("Would you like to write this data to a file (yes or no): ")
+        if writeYesNo == "yes":
+            fileName = input("Enter file: ")
+            txtFile = False
+            try:
+                txtFile = open(fileName, "a")
+            except:
+                print("path does not exist\n\n")
+            if txtFile != False:
+                now = datetime.now()
+                dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+                try:
+                    txtFile.write("\n*********************************\n")
+                    txtFile.write("Data written on: " + dt_string + "\n")
+                    txtFile.write("From file: " + fileReader.name + "\n")
+                    txtFile.write("Used a passing grade threshold of: " + str(passingGrade) + "\n\n")
+                    for passed in passers:
+                        txtFile.write(passed[1] + "\n")
+                    writeYesNo = "no"
+                    print("Data written to file")
+                except:
+                    print("Could not write to file")
+
 def GradeStock(ticker, giveDetails):
     stockInfo = yfn.Ticker(ticker).info
 
@@ -85,7 +112,7 @@ def GradeStock(ticker, giveDetails):
 
     PE = 0
     try: 
-        PE = PEWgt * clamp(-math.log(stockInfo["PE"], 10) + 3, 0, 1)
+        PE = PEWgt * clamp(-math.log(stockInfo["forwardPE"], 10) + 3, 0, 1)
         UnWgtPE = stockInfo["forwardPE"]
         PEPerc = round(PE/PEWgt*100, 1)
     except:
@@ -185,7 +212,7 @@ def GradeStock(ticker, giveDetails):
 
     Week52Range = 0
     try:
-        Week52Range = Week52RangeWgt * clamp(math.log(stockInfo["52WeekChange"], .6), 0, 1)
+        Week52Range = Week52RangeWgt * clamp(-math.log(stockInfo["52WeekChange"], .6)+2, 0, 1)
         UnWgtWeek52Range = stockInfo["52WeekChange"]
         Week52RangePerc = round(Week52Range/Week52RangeWgt*100, 1)
     except:
@@ -195,8 +222,8 @@ def GradeStock(ticker, giveDetails):
 
     marketCap = 0
     try:
-        marketCap = marketCapWgt * clamp(math.log((stockInfo["sharesOutstanding"]*stockInfo["currentPrice"]), 10**9, 0, 1))
-        UnWgtMarketCap = stockInfo["sharesOutstanding"]*stockInfo["currentPrice"]
+        marketCap = marketCapWgt * clamp(math.log(stockInfo["marketCap"], 10**9), 0, 1)
+        UnWgtMarketCap = stockInfo["marketCap"]
         marketCapPerc = round(marketCap/marketCapWgt*100, 1)
     except:
         marketCap = 0
@@ -231,7 +258,14 @@ def GradeStock(ticker, giveDetails):
         print(details)
     elif Grade >= passingGrade:
         Passingtext = name + " Passed with Score of " + str(round(Grade, 1)) + "%"
-        passers.append(Passingtext + " : " + details)
+        if len(passers) == 0 or Grade <= passers[len(passers)-1][0]:
+            passers.append([Grade, Passingtext + " : " + details])
+        else:
+            for i in range(len(passers), 0, -1):
+                if Grade <= passers[i-1][0]:
+                    passers.insert(i-1, [Grade, Passingtext + " : " + details])
+                    break
+            
 def clamp(n, min, max): 
     if n < min: 
         return min
