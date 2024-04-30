@@ -64,7 +64,7 @@ def ScrapeCVS(fileReader):
     pd.set_option('display.max_columns', None)
     pd.set_option('max_colwidth', None)
     pd.set_option("display.max_rows", None)
-    survivors = pd.DataFrame(data=tableData, index=["Ticker", "Grade", "Price", "Price Wgt%", "EPS", "EPS Wgt%", "P/E", "P/E Wgt%", "EBITDA", "EBITDA Wgt%", "Revenue", "Revenue Wgt%", "Revenue Growth", "Revenue Growth Wgt%", "Operating Margins", "Operating Margins Wgt%", "Debt/Equity", "Debt/Equity Wgt%", "PS", "PS Wgt%", "Volume", "Volume Wgt%", "Beta", "Beta Wgt%", "Short % of Float", "Short % of Float Wgt%", "52 Week Change", "52 Week Change Wgt%", "Market Cap", "Market Cap Wgt%"])
+    survivors = pd.DataFrame(data=tableData, index=["Ticker", "Grade", "Price", "Price Wgt%", "P/E", "P/E Wgt%", "EPS", "EPS Wgt%", "EBITDA", "EBITDA Wgt%", "Revenue Growth", "Revenue Growth Wgt%", "Revenue", "Revenue Wgt%", "Operating Margins", "Operating Margins Wgt%", "Debt/Equity", "Debt/Equity Wgt%", "PS", "PS Wgt%", "Volume", "Volume Wgt%", "Beta", "Beta Wgt%", "Short % of Float", "Short % of Float Wgt%", "52 Week Change", "52 Week Change Wgt%", "Market Cap", "Market Cap Wgt%"])
     survivors = survivors.T
 
     if len(passers) <= 0:
@@ -228,7 +228,6 @@ def GradeStock(ticker, giveDetails):
             + ebitda + PS + revenue + volume + shortPercentFloat + Week52Range + marketCap)
     print(name, " : ", round(Grade, 1), "%")
 
-    tableData.update({name: [ticker, str(round(Grade, 1)) + "%", str(UnWgtStockPrice), str(stockPricePerc) + "%", str(UnWgtPE), str(PEPerc) + "%", str(UnWgtEps), str(EpsPerc) + "%", str(UnWgtEbitda), str(ebitdaPerc) + "%", str(UnWgtRevenueGrowth), str(revenueGrowthPerc) + "%", str(UnWgtRevenue), str(revenuePerc) + "%", str(UnWgtOperatingMargin), str(operatingMarginPerc) + "%", str(UnWgtDebtToEquity), str(debtToEquityPerc) + "%", str(UnWgtPS), str(PSPerc) + "%", str(UnWgtVolume), str(volumePerc) + "%", str(UnWgtBeta), str(betaPerc) + "%", str(UnWgtShortPercentFloat), str(shortPercentFloatPerc) + "%", str(UnWgtWeek52Range), str(Week52RangePerc) + "%", str(UnWgtMarketCap), str(marketCapPerc) + "%"]})
 
     details = "\n\nStockPrice: " + str(UnWgtStockPrice) + " | Weighting: " + str(stockPriceWgt) + "%" + " | % of Weight : " + str(stockPricePerc) + "%" + """
 """  + "PE: " + str(UnWgtPE) + " | Weighting: " + str(PEWgt) + "%" + " | % of Weight : " + str(PEPerc) + "%" + """
@@ -248,6 +247,7 @@ def GradeStock(ticker, giveDetails):
     if giveDetails:
         print(details)
     elif Grade >= passingGrade:
+        tableData.update({name: [ticker, str(round(Grade, 1)) + "%", str(UnWgtStockPrice), str(stockPricePerc) + "%", str(UnWgtPE), str(PEPerc) + "%", str(UnWgtEps), str(EpsPerc) + "%", str(UnWgtEbitda), str(ebitdaPerc) + "%", str(UnWgtRevenueGrowth), str(revenueGrowthPerc) + "%", str(UnWgtRevenue), str(revenuePerc) + "%", str(UnWgtOperatingMargin), str(operatingMarginPerc) + "%", str(UnWgtDebtToEquity), str(debtToEquityPerc) + "%", str(UnWgtPS), str(PSPerc) + "%", str(UnWgtVolume), str(volumePerc) + "%", str(UnWgtBeta), str(betaPerc) + "%", str(UnWgtShortPercentFloat), str(shortPercentFloatPerc) + "%", str(UnWgtWeek52Range), str(Week52RangePerc) + "%", str(UnWgtMarketCap), str(marketCapPerc) + "%"]})
         Passingtext = name + " Passed with Score of " + str(round(Grade, 1)) + "%"
         if len(passers) == 0 or Grade <= passers[len(passers)-1][0]:
             passers.append([Grade, Passingtext + " : " + details])
