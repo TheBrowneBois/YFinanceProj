@@ -2,12 +2,11 @@ from ast import Try
 import yfinance as yfn
 import math
 from datetime import datetime
+import pandas as pd
 
 passingGrade = 80
 passers = [[]]
 exit = False
-#for key, value in yfn.Ticker("AAPL").info.items():
-#    print(str(key) + " : " + str(value))
 
 stockPriceWgt = 2
 EpsWgt = 10
@@ -24,6 +23,7 @@ shortPercentFloatWgt = 7
 Week52RangeWgt = 3
 marketCapWgt = 10
 
+tableData = {}
 
 def main():
     global exit
@@ -60,32 +60,21 @@ def ScrapeCVS(fileReader):
     print("\n")
     for passed in passers:
         print(passed[1], "\n")
+
+    pd.set_option('display.max_columns', None)
+    pd.set_option('max_colwidth', None)
+    pd.set_option("display.max_rows", None)
+    survivors = pd.DataFrame(data=tableData, index=["Ticker", "Grade", "Price", "Price Wgt%", "EPS", "EPS Wgt%", "P/E", "P/E Wgt%", "EBITDA", "EBITDA Wgt%", "Revenue", "Revenue Wgt%", "Revenue Growth", "Revenue Growth Wgt%", "Operating Margins", "Operating Margins Wgt%", "Debt/Equity", "Debt/Equity Wgt%", "PS", "PS Wgt%", "Volume", "Volume Wgt%", "Beta", "Beta Wgt%", "Short % of Float", "Short % of Float Wgt%", "52 Week Change", "52 Week Change Wgt%", "Market Cap", "Market Cap Wgt%"])
+    survivors = survivors.T
+
     if len(passers) <= 0:
         print("No stocks passed the threshold\n")
-    writeYesNo = "yes"
-    while(writeYesNo == "yes"):
-        writeYesNo = input("Would you like to write this data to a file (yes or no): ")
+    else:
+        writeYesNo = input("Would you like to write this data to a csv file (yes or no): ")
         if writeYesNo == "yes":
-            fileName = input("Enter file: ")
-            txtFile = False
-            try:
-                txtFile = open(fileName, "a")
-            except:
-                print("path does not exist\n\n")
-            if txtFile != False:
-                now = datetime.now()
-                dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
-                try:
-                    txtFile.write("\n*********************************\n")
-                    txtFile.write("Data written on: " + dt_string + "\n")
-                    txtFile.write("From file: " + fileReader.name + "\n")
-                    txtFile.write("Used a passing grade threshold of: " + str(passingGrade) + "\n\n")
-                    for passed in passers:
-                        txtFile.write(passed[1] + "\n")
-                    writeYesNo = "no"
-                    print("Data written to file")
-                except:
-                    print("Could not write to file")
+            fileName = str(input("What would you like to name your file?: "))
+            survivors.to_csv(fileName)
+            print("Data Written to file\n")
 
 def GradeStock(ticker, giveDetails):
     stockInfo = yfn.Ticker(ticker).info
@@ -238,6 +227,8 @@ def GradeStock(ticker, giveDetails):
     Grade = (stockPrice + PE + Eps + revenueGrowth + operatingMargin + debtToEquity + beta
             + ebitda + PS + revenue + volume + shortPercentFloat + Week52Range + marketCap)
     print(name, " : ", round(Grade, 1), "%")
+
+    tableData.update({name: [ticker, str(round(Grade, 1)) + "%", str(UnWgtStockPrice), str(stockPricePerc) + "%", str(UnWgtPE), str(PEPerc) + "%", str(UnWgtEps), str(EpsPerc) + "%", str(UnWgtEbitda), str(ebitdaPerc) + "%", str(UnWgtRevenueGrowth), str(revenueGrowthPerc) + "%", str(UnWgtRevenue), str(revenuePerc) + "%", str(UnWgtOperatingMargin), str(operatingMarginPerc) + "%", str(UnWgtDebtToEquity), str(debtToEquityPerc) + "%", str(UnWgtPS), str(PSPerc) + "%", str(UnWgtVolume), str(volumePerc) + "%", str(UnWgtBeta), str(betaPerc) + "%", str(UnWgtShortPercentFloat), str(shortPercentFloatPerc) + "%", str(UnWgtWeek52Range), str(Week52RangePerc) + "%", str(UnWgtMarketCap), str(marketCapPerc) + "%"]})
 
     details = "\n\nStockPrice: " + str(UnWgtStockPrice) + " | Weighting: " + str(stockPriceWgt) + "%" + " | % of Weight : " + str(stockPricePerc) + "%" + """
 """  + "PE: " + str(UnWgtPE) + " | Weighting: " + str(PEWgt) + "%" + " | % of Weight : " + str(PEPerc) + "%" + """
