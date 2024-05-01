@@ -6,7 +6,6 @@ import pandas as pd
 
 passingGrade = 80
 passers = [[]]
-exit = False
 
 stockPriceWgt = 2
 EpsWgt = 10
@@ -26,13 +25,12 @@ marketCapWgt = 10
 tableData = {}
 
 def main():
-    global exit
-    while exit == False:
-        menu = input("Grade A Specific Stock (1)\nGrade Stocks from a csv file (2)\nExit (3)\n")
+    while True:
+        menu = input("1 -> Grade A Specific Stock\n2 -> Grade Stocks from a csv file\n3 -> Exit\n")
         if menu == "1":
-            ticker = input("Enter the stock ticker\n\n")
+            ticker = input("Enter the stock ticker: ")
             GradeStock(ticker, True)
-        if menu == "2":
+        elif menu == "2":
             csvFile = False
             print("The csv file must only contain tickers, one each per line")
             print("if the csv file is in the same folder as this program then use the format, file.csv")
@@ -46,8 +44,10 @@ def main():
                 print("path does not exist\n\n")
             if csvFile != False:
                 ScrapeCVS(csvFile)
-        if menu == "3":
-            exit = True
+        elif menu == "3":
+            break
+        else:
+            print("Invalid input!\n")
 
 def ScrapeCVS(fileReader):
     global passers
@@ -91,7 +91,7 @@ def GradeStock(ticker, giveDetails):
         stockPricePerc = "None"
     Eps = 0
     try:
-        Eps = EpsWgt * clamp(math.log(stockInfo["forwardEps"], 25), 0, 1)
+        Eps = EpsWgt * clamp(math.log(stockInfo["trailingEps"], 25), 0, 1)
         UnWgtEps = stockInfo["forwardEps"]
         EpsPerc = round(Eps/EpsWgt*100, 1)
     except:
@@ -101,7 +101,7 @@ def GradeStock(ticker, giveDetails):
 
     PE = 0
     try: 
-        PE = PEWgt * clamp(-math.log(stockInfo["forwardPE"], 10) + 3, 0, 1)
+        PE = PEWgt * clamp(-math.log(stockInfo["trailingPE"], 10) + 3, 0, 1)
         UnWgtPE = stockInfo["forwardPE"]
         PEPerc = round(PE/PEWgt*100, 1)
     except:
@@ -229,7 +229,7 @@ def GradeStock(ticker, giveDetails):
     print(name, " : ", round(Grade, 1), "%")
 
 
-    details = "\n\nStockPrice: " + str(UnWgtStockPrice) + " | Weighting: " + str(stockPriceWgt) + "%" + " | % of Weight : " + str(stockPricePerc) + "%" + """
+    details = "\nStockPrice: " + str(UnWgtStockPrice) + " | Weighting: " + str(stockPriceWgt) + "%" + " | % of Weight : " + str(stockPricePerc) + "%" + """
 """  + "PE: " + str(UnWgtPE) + " | Weighting: " + str(PEWgt) + "%" + " | % of Weight : " + str(PEPerc) + "%" + """
 """  + "Eps: " + str(UnWgtEps) + " | Weighting: " + str(EpsWgt) + "%" + " | % of Weight : " + str(EpsPerc) + "%" +  """
 """  + "EBITDA: " + str(UnWgtEbitda) + " | Weighting: " + str(ebitdaWgt) + "%" + " | % of Weight : " + str(ebitdaPerc) + "%" +  """
