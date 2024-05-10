@@ -92,32 +92,31 @@ def GradeStock(ticker, giveDetails):
     Eps = 0
     try:
         Eps = EpsWgt * clamp(math.log(stockInfo["trailingEps"], 25), 0, 1)
-        UnWgtEps = stockInfo["forwardEps"]
+        UnWgtEps = stockInfo["trailingEps"]
         EpsPerc = round(Eps/EpsWgt*100, 1)
     except:
         Eps = 0
         UnWgtEps = "None"
         EpsPerc = "None"
 
-    PE = 0
-    try: 
-        PE = PEWgt * clamp(-math.log(stockInfo["trailingPE"], 10) + 3, 0, 1)
-        UnWgtPE = stockInfo["forwardPE"]
-        PEPerc = round(PE/PEWgt*100, 1)
-    except:
-        PE = 0
-        UnWgtPE = "None"
-        PEPerc = "None"
-
     ebitda = 0
     try:
-        ebitda = ebitdaWgt * clamp(math.log(stockInfo["ebitdaMargins"], .2), 0, 1)
-        UnWgtEbitda = stockInfo["ebitdaMargins"]
+        ebitda = ebitdaWgt * clamp(math.log(stockInfo["enterpriseToEbitda"], .2), 0, 1)
+        UnWgtEbitda = stockInfo["enterpriseToEbitda"]
         ebitdaPerc = round(ebitda/ebitdaWgt*100, 1)
     except:
         ebitda = 0
         UnWgtEbitda = "None"
         ebitdaPerc = "None"
+
+    PE = 0
+    if UnWgtStockPrice == "None" or UnWgtEps == "None":
+        UnWgtPE = "None"
+        PEPerc = "None"
+    else:
+        UnWgtPE = UnWgtStockPrice / UnWgtEps
+        PE = PEWgt * clamp(-math.log(UnWgtPE, 10) + 3, 0, 1)
+        PEPerc = round(PE/PEWgt*100, 1)
 
     revenue = 0
     try:
